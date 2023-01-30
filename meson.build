@@ -9,7 +9,8 @@ project(
 executable(
   'Automata',
   'automata.cpp',
-  'automata/link.hpp',
-  'automata/state.hpp',
-  install : true
+  'automata/link.cpp',
+  'automata/automata.cpp',
+  'automata/state.cpp',
+  install : true,
 )

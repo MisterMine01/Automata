@@ -1,12 +1,15 @@
 #ifndef AUTOMATA_STATE_HPP
 #define AUTOMATA_STATE_HPP
 
-#include "./link.hpp"
+#include "link.hpp"
+#include <vector>
 
 namespace mm1
 {
     namespace automata
     {
+        class Link;
+
         class State
         {
         private:
@@ -18,6 +21,7 @@ namespace mm1
             ~State();
             void addILink(Link *link);
             void addOLink(Link *link);
+            State canPassed(int symbol);
             bool isFinal();
         };
     } // namespace automata
