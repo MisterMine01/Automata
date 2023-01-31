@@ -2,6 +2,7 @@
 #include <stack>
 #include <algorithm>
 #include <vector>
+#include <iostream>
 
 mm1::automata::Link::Link(State *from, State *to, std::vector<int> symbols)
 {
@@ -14,6 +15,7 @@ mm1::automata::Link::Link(State *from, State *to, std::vector<int> symbols)
 
 mm1::automata::Link::~Link()
 {
+    std::cout << "Link deleted" << std::endl;
 }
 
 bool mm1::automata::Link::canPassed(int symbol)

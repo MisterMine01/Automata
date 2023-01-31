@@ -1,9 +1,10 @@
 #include "./state.hpp"
 #include <iostream>
 
-mm1::automata::State::State(bool isFinal)
+mm1::automata::State::State(std::string name, bool isFinal)
 {
     this->is_final = isFinal;
+    this->name = name;
 }
 
 mm1::automata::State::~State()
@@ -20,17 +21,17 @@ void mm1::automata::State::addOLink(Link *link)
     this->out_links.push_back(link);
 }
 
-mm1::automata::State mm1::automata::State::canPassed(int symbol)
+mm1::automata::State* mm1::automata::State::canPassed(int symbol)
 {
     for (int i = 0; i < ((int)this->out_links.size()); i++)
     {
-        mm1::automata::Link *l = this->out_links.at(i);        
+        mm1::automata::Link *l = this->out_links.at(i);    
         if (l->canPassed(symbol))
         {
             return l->getTo();
         }
     }
-    return *this;
+    return this;
 }
 
 bool mm1::automata::State::isFinal()

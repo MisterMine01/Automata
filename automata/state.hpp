@@ -3,6 +3,7 @@
 
 #include "link.hpp"
 #include <vector>
+#include <string>
 
 namespace mm1
 {
@@ -17,11 +18,12 @@ namespace mm1
             std::vector<Link *> in_links;
             std::vector<Link *> out_links;
         public:
-            State(bool isFinal=false);
+            std::string name;
+            State(std::string name, bool isFinal=false);
             ~State();
             void addILink(Link *link);
             void addOLink(Link *link);
-            State canPassed(int symbol);
+            State* canPassed(int symbol);
             bool isFinal();
         };
     } // namespace automata

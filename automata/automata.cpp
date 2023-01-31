@@ -1,6 +1,7 @@
 #include "automata.hpp"
 #include <stack>
-
+#include <iostream>
+#include <string>
 
 mm1::automata::Automata::Automata()
 {
@@ -22,8 +23,11 @@ void mm1::automata::Automata::addState(State *state)
 
 std::stack<int> decodeSymbol(int sym) {
     std::stack<int> pile;
-    while (sym != 0) {
+    while (true) {
         pile.push(sym%10);
+        if (sym < 10) {
+            break;
+        }
         sym /= 10;
     }
     return pile;
@@ -35,8 +39,8 @@ bool mm1::automata::Automata::canPassed(int symbol)
     std::stack<int> pile = decodeSymbol(symbol);
     while (!pile.empty())
     {
-        State tmp = currentState->canPassed(pile.top());
-        currentState = &tmp;
+        std::cout << "CurrentState: " << currentState->name << std::endl;
+        State* currentState = currentState->canPassed(pile.top());
         pile.pop();
     }
     return currentState->isFinal();
