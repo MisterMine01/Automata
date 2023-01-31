@@ -1,4 +1,5 @@
 #include "./state.hpp"
+#include <iostream>
 
 mm1::automata::State::State(bool isFinal)
 {
@@ -23,7 +24,7 @@ mm1::automata::State mm1::automata::State::canPassed(int symbol)
 {
     for (int i = 0; i < ((int)this->out_links.size()); i++)
     {
-        mm1::automata::Link *l = this->out_links.at(i);
+        mm1::automata::Link *l = this->out_links.at(i);        
         if (l->canPassed(symbol))
         {
             return l->getTo();

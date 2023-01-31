@@ -13,7 +13,7 @@ void multipleDix()
     State s0;
     automa.addState(&s0);
     automa.setInputState(&s0);
-    State s1;
+    State s1(true);
     automa.addState(&s1);
     new Link(&s0, &s1, {0});
     new Link(&s1, &s0, {1, 2, 3, 4, 5, 6, 7, 8, 9});
