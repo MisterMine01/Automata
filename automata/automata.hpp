@@ -13,12 +13,10 @@ namespace mm1
         {
         private:
             State * inputStates;
-            std::vector<State *> states;
         public:
             Automata();
             ~Automata();
             void setInputState(State *state);
-            void addState(State *state);
             bool canPassed(int symbol);
         };
     } // namespace automata

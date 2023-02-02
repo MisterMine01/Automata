@@ -16,7 +16,9 @@ namespace mm1
         private:
             bool is_final = false;
             std::vector<Link *> in_links;
+            int in_links_size = 0;
             std::vector<Link *> out_links;
+            int out_links_size = 0;
         public:
             std::string name;
             State(std::string name, bool isFinal=false);
